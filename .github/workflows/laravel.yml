@@ -5,6 +5,17 @@ on:
     branches: [ "master", "CORE-1085" ]
   pull_request:
     branches: [ "master", "CORE-1085" ]
+  workflow_dispatch:
+    inputs:
+      group:
+        description: 'Test group to run'
+        default: '0'
+        type: string
+      exclude_group:
+        description: 'Test group to exclude'
+        default: '0'
+        type: string
+  
 
 jobs:
   laravel-tests:
