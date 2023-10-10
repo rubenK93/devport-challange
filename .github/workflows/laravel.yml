@@ -43,3 +43,4 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+      run: ./tests/paratest/paratest.runner.sh 5 --group ${{ inputs.group }} --exclude-group ${{ inputs.exclude_group }}
