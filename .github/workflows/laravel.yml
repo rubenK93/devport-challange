@@ -1,10 +1,20 @@
 name: Laravel
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  #push:
+  #  branches: [ "master" ]
+  #pull_request:
+  #  branches: [ "master" ]
+  workflow_dispatch:
+    inputs:
+      group:
+        description: 'Test group to run'
+        default: '0'
+        type: string
+      exclude_group:
+        description: 'Test group to exclude'
+        default: '0'
+        type: string
 
 jobs:
   laravel-tests:
