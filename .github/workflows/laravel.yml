@@ -1,20 +1,10 @@
 name: Laravel
 
 on:
-  #push:
-  #  branches: [ "master" ]
-  #pull_request:
-  #  branches: [ "master" ]
-  workflow_dispatch:
-    inputs:
-      group:
-        description: 'Test group to run'
-        default: '0'
-        type: string
-      exclude_group:
-        description: 'Test group to exclude'
-        default: '0'
-        type: string
+  push:
+    branches: [ "master", "CORE-1085" ]
+  pull_request:
+    branches: [ "master", "CORE-1085" ]
 
 jobs:
   laravel-tests:
@@ -43,4 +33,4 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
-      run: ./tests/paratest/paratest.runner.sh 5 --group ${{ inputs.group }} --exclude-group ${{ inputs.exclude_group }}
+      #run: ./tests/paratest/paratest.runner.sh 5 --group ${{ inputs.group }} --exclude-group ${{ inputs.exclude_group }}
